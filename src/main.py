@@ -42,15 +42,21 @@ from dominio.empleado import Empleado
 from persistencia.empleado_dao import EmpleadoDAO
 
 crear_tablas()
-empleado = Empleado(nombre="Ana Pérez", correo="ana@ecotech.cl")
+#empleado = Empleado(nombre="Ana Pérez", correo="ana@ecotech.cl")
+empleado2 = Empleado(nombre="Rodrigo lopez", correo="rodrigo@ecotech.cl")
 
 print("Antes:", empleado.id)
 # None
 
 EmpleadoDAO.insertar(empleado)
+EmpleadoDAO.insertar(empleado2)
 
 print("Después:", empleado.id)
 # id generado por la BD
 
-crear_tablas()
-departamento = Departamento(nombre="departamento 1")
+encontrado = EmpleadoDAO.buscar_por_id(empleado.id)
+print("Encontrado:", encontrado)
+
+print("Listado:")
+for item in EmpleadoDAO.listar():
+    print(item)
