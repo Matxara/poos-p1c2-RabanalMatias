@@ -41,7 +41,7 @@ from persistencia.crear_bd import crear_tablas
 from dominio.empleado import Empleado
 from persistencia.empleado_dao import EmpleadoDAO
 
-crear_tablas()
+"""crear_tablas()
 #empleado = Empleado(nombre="Ana Pérez", correo="ana@ecotech.cl")
 empleado2 = Empleado(nombre="Rodrigo lopez", correo="rodrigo@ecotech.cl")
 
@@ -52,11 +52,26 @@ EmpleadoDAO.insertar(empleado)
 EmpleadoDAO.insertar(empleado2)
 
 print("Después:", empleado.id)
-# id generado por la BD
+# id generado por la BD"""
 
-encontrado = EmpleadoDAO.buscar_por_id(empleado.id)
+print("empleado id",empleado.id)
+
+encontrado = EmpleadoDAO.buscar_por_id(12)
 print("Encontrado:", encontrado)
 
 print("Listado:")
 for item in EmpleadoDAO.listar():
     print(item)
+
+try:
+    encontrado.correo="junito2222.torres@ecotech.cl"
+    actualizado = EmpleadoDAO.actualizar(encontrado)
+
+    if actualizado:
+        print("Empleado actualizado correctamente.")
+    else:
+        print("Empleado no encontrado.")
+except Exception:
+    print(
+    "No fue posible completar la operación."
+    )
