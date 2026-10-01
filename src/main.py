@@ -2,7 +2,9 @@
 from dominio.departamento import Departamento
 from dominio.empleado import Empleado
 from dominio.registrotiempo import Registrot
-
+from persistencia.crear_bd import crear_tablas
+from dominio.empleado import Empleado
+from persistencia.empleado_dao import EmpleadoDAO
 
 empleado_ana = Empleado(
     nombre="Ana Torres",
@@ -31,15 +33,10 @@ departamento = Departamento(
 )
 
 departamento.agregar_empleado(empleado_junito)
-print(departamento.cantidad_empleados())
 
 for empleado in dpt_desarrollo.empleados:
     print(empleado.mostrar_datos())
 
-# main.py
-from persistencia.crear_bd import crear_tablas
-from dominio.empleado import Empleado
-from persistencia.empleado_dao import EmpleadoDAO
 
 """crear_tablas()
 #empleado = Empleado(nombre="Ana Pérez", correo="ana@ecotech.cl")
