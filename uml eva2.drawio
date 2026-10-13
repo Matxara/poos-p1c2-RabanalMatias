@@ -1,0 +1,303 @@
+<mxfile host="app.diagrams.net" agent="Claude" pages="3">
+  <diagram id="p1" name="1 - Dominio (UML)">
+    <mxGraphModel dx="1132" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Entidad" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="Entidad" vertex="1">
+          <mxGeometry height="104" width="260" x="420" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Entidad_a" parent="Entidad" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="- _id: int" vertex="1">
+          <mxGeometry height="26" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Entidad_s" parent="Entidad" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Entidad_m" parent="Entidad" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="+ id(): int  «getter»&lt;br&gt;+ id(valor: int)  «setter, valida»" vertex="1">
+          <mxGeometry height="44" width="260" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Departamento" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Departamento" vertex="1">
+          <mxGeometry height="158" width="330" x="20" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Departamento_a" parent="Departamento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="- _nombre: str&lt;br&gt;- _empleados: list[Empleado]" vertex="1">
+          <mxGeometry height="44" width="330" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Departamento_s" parent="Departamento" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="330" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Departamento_m" parent="Departamento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="+ agregar_empleado(empleado): bool&lt;br&gt;+ quitar_empleado(empleado): bool&lt;br&gt;+ cantidad_empleados(): int&lt;br&gt;+ empleados(): tuple  «solo lectura»" vertex="1">
+          <mxGeometry height="80" width="330" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="Persona" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Persona" vertex="1">
+          <mxGeometry height="122" width="260" x="420" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Persona_a" parent="Persona" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="- _nombre: str&lt;br&gt;- _correo: str" vertex="1">
+          <mxGeometry height="44" width="260" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Persona_s" parent="Persona" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="260" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Persona_m" parent="Persona" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="+ mostrar_datos(): str&lt;br&gt;+ __str__(): str" vertex="1">
+          <mxGeometry height="44" width="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="Proyecto" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Proyecto" vertex="1">
+          <mxGeometry height="86" width="290" x="810" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Proyecto_a" parent="Proyecto" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="- _nombre: str" vertex="1">
+          <mxGeometry height="26" width="290" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Proyecto_s" parent="Proyecto" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="290" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Proyecto_m" parent="Proyecto" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="+ __str__(): str" vertex="1">
+          <mxGeometry height="26" width="290" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Empleado" vertex="1">
+          <mxGeometry height="158" width="330" x="385" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado_a" parent="Empleado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="- _cargo: str&lt;br&gt;- _departamento: Departamento" vertex="1">
+          <mxGeometry height="44" width="330" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado_s" parent="Empleado" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="330" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Empleado_m" parent="Empleado" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="+ cambiar_departamento(departamento): void&lt;br&gt;- _vincular(departamento): void&lt;br&gt;+ mostrar_datos(): str&lt;br&gt;+ __str__(): str" vertex="1">
+          <mxGeometry height="80" width="330" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="RegistroTrabajo" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="RegistroTrabajo" vertex="1">
+          <mxGeometry height="158" width="290" x="810" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="RegistroTrabajo_a" parent="RegistroTrabajo" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="- _empleado: Empleado&lt;br&gt;- _proyecto: Proyecto&lt;br&gt;- _fecha: date&lt;br&gt;- _horas: float&lt;br&gt;- _descripcion: str" vertex="1">
+          <mxGeometry height="98" width="290" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="RegistroTrabajo_s" parent="RegistroTrabajo" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="290" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="RegistroTrabajo_m" parent="RegistroTrabajo" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" value="+ __str__(): str" vertex="1">
+          <mxGeometry height="26" width="290" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="Persona" style="endArrow=block;endSize=14;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="Entidad" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="Empleado" style="endArrow=block;endSize=14;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" target="Persona" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="Departamento" style="endArrow=block;endSize=14;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" target="Entidad" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="Proyecto" style="endArrow=block;endSize=14;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;entryX=1;entryY=0.5;" target="Entidad" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="RegistroTrabajo_a" style="endArrow=block;endSize=14;endFill=0;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;entryX=1;entryY=0.192;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.449;exitDx=0;exitDy=0;exitPerimeter=0;" target="Entidad" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="490" />
+              <mxPoint x="1230" y="40" />
+            </Array>
+            <mxPoint x="1110" y="490" as="sourcePoint" />
+            <mxPoint x="690" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="Departamento" style="endArrow=none;startArrow=diamondThin;startFill=0;startSize=14;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="Empleado" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7" connectable="0" parent="e6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.78" as="geometry">
+            <mxPoint x="15" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l8" connectable="0" parent="e6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.78" as="geometry">
+            <mxPoint x="12" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="Empleado" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="RegistroTrabajo" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l10" connectable="0" parent="e9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l11" connectable="0" parent="e9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="Proyecto" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="RegistroTrabajo" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l13" connectable="0" parent="e12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint x="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l14" connectable="0" parent="e12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=1;" value="0..*" vertex="1">
+          <mxGeometry relative="1" x="0.7" as="geometry">
+            <mxPoint x="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p2" name="2 - Persistencia (DAO)">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t2" value="&lt;b&gt;EcoTech – Capa de persistencia&lt;/b&gt; (src/persistencia/)&lt;br&gt;Métodos subrayados = @staticmethod" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="420" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="E_Empleado" value="«dominio»&lt;br&gt;&lt;b&gt;Empleado&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="85" y="80" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="E_Departamento" value="«dominio»&lt;br&gt;&lt;b&gt;Departamento&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="435" y="80" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="E_Proyecto" value="«dominio»&lt;br&gt;&lt;b&gt;Proyecto&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="785" y="80" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="E_RegistroTrabajo" value="«dominio»&lt;br&gt;&lt;b&gt;RegistroTrabajo&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1135" y="80" width="200" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="EmpleadoDAO" value="«DAO»&lt;br&gt;EmpleadoDAO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="20" y="190" width="330" height="192" as="geometry" />
+        </mxCell>
+        <mxCell id="EmpleadoDAO_m" value="&lt;u&gt;+ insertar(empleado): Empleado&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ buscar_por_id(id): Empleado | None&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ buscar_por_correo(correo): Empleado | None&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ listar(): list[Empleado]&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ actualizar(empleado): bool&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ eliminar(id): bool&lt;/u&gt;&lt;br&gt;&lt;u&gt;- _fila_a_empleado(fila): Empleado&lt;/u&gt;&lt;br&gt;&lt;u&gt;- _id_departamento(empleado): int | None&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="EmpleadoDAO">
+          <mxGeometry y="40" width="330" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="DepartamentoDAO" value="«DAO»&lt;br&gt;DepartamentoDAO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="190" width="330" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="DepartamentoDAO_m" value="&lt;u&gt;+ insertar(departamento): Departamento&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ buscar_por_id(id): Departamento | None  (con empleados)&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ listar(): list[Departamento]&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ actualizar(departamento): bool&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ eliminar(id): bool&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="DepartamentoDAO">
+          <mxGeometry y="40" width="330" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="ProyectoDAO" value="«DAO»&lt;br&gt;ProyectoDAO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="720" y="190" width="330" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="ProyectoDAO_m" value="&lt;u&gt;+ insertar(proyecto): Proyecto&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ buscar_por_id(id): Proyecto | None&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ listar(): list[Proyecto]&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ actualizar(proyecto): bool&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ eliminar(id): bool&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="ProyectoDAO">
+          <mxGeometry y="40" width="330" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="RegistroTrabajoDAO" value="«DAO»&lt;br&gt;RegistroTrabajoDAO" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="190" width="330" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="RegistroTrabajoDAO_m" value="&lt;u&gt;+ insertar(registro): RegistroTrabajo&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ buscar_por_id(id): RegistroTrabajo | None&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ listar(): list[RegistroTrabajo]&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ listar_por_empleado(id_empleado): list&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ actualizar(registro): bool&lt;/u&gt;&lt;br&gt;&lt;u&gt;+ eliminar(id): bool&lt;/u&gt;&lt;br&gt;&lt;u&gt;- _fila_a_registro(fila): RegistroTrabajo&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="RegistroTrabajoDAO">
+          <mxGeometry y="40" width="330" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_base" value="«módulo»&lt;br&gt;dao_base" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="460" width="400" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="dao_base_m" value="+ ejecutar_escritura(sql, parametros): (id, filas)&lt;br&gt;+ consultar(sql, parametros): list&lt;br&gt;+ consultar_uno(sql, parametros): tuple | None" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="dao_base">
+          <mxGeometry y="40" width="400" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="conexion" value="«módulo»&lt;br&gt;conexion" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="520" y="620" width="400" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="conexion_a" value="+ ERRORES_BD, ERRORES_INTEGRIDAD" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="conexion">
+          <mxGeometry y="40" width="400" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="conexion_s" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="conexion">
+          <mxGeometry y="66" width="400" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="conexion_m" value="+ obtener_motor(): str&lt;br&gt;+ marcador_sql(): str&lt;br&gt;+ abrir_conexion(): Connection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="conexion">
+          <mxGeometry y="74" width="400" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="crear_bd" value="«módulo»&lt;br&gt;crear_bd" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="620" width="300" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="crear_bd_m" value="+ crear_tablas(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="crear_bd">
+          <mxGeometry y="40" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="bd" value="Base de datos&lt;br&gt;SQLite / MySQL / MariaDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="790" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="env" value="&lt;b&gt;.env&lt;/b&gt;&lt;br&gt;DB_ENGINE, DB_HOST,&lt;br&gt;DB_PORT, DB_NAME,&lt;br&gt;DB_USER, DB_PASSWORD" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="160" y="640" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="crea / retorna" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="EmpleadoDAO" target="E_Empleado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="EmpleadoDAO" target="dao_base">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="crea / retorna" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="DepartamentoDAO" target="E_Departamento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="DepartamentoDAO" target="dao_base">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="crea / retorna" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="ProyectoDAO" target="E_Proyecto">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ProyectoDAO" target="dao_base">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="crea / retorna" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="RegistroTrabajoDAO" target="E_RegistroTrabajo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="RegistroTrabajoDAO" target="dao_base">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="usa" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="dao_base" target="conexion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="usa" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="crear_bd" target="conexion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="se conecta" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="conexion" target="bd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="configura" style="endArrow=open;endFill=0;dashed=1;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;fontSize=11;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="env" target="conexion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="p3" name="3 - Base de datos">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="t3" value="&lt;b&gt;EcoTech – Modelo de tablas&lt;/b&gt; (tipos de MySQL/MariaDB; en SQLite: INTEGER, TEXT, REAL)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;align=center;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="560" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="departamento" value="departamento" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="20" y="90" width="280" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="departamento_r" value="PK  id  INT  AUTO_INCREMENT&lt;br&gt;nombre  VARCHAR(100)  UNIQUE, NOT NULL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="departamento">
+          <mxGeometry y="28" width="280" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="empleado" value="empleado" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="380" y="70" width="340" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="empleado_r" value="PK  id  INT  AUTO_INCREMENT&lt;br&gt;nombre  VARCHAR(100)  NOT NULL&lt;br&gt;correo  VARCHAR(150)  UNIQUE, NOT NULL&lt;br&gt;cargo  VARCHAR(100)  NOT NULL&lt;br&gt;FK  departamento_id  INT  NULL  → departamento.id" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="empleado">
+          <mxGeometry y="28" width="340" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="registro_trabajo" value="registro_trabajo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="800" y="50" width="340" height="146" as="geometry" />
+        </mxCell>
+        <mxCell id="registro_trabajo_r" value="PK  id  INT  AUTO_INCREMENT&lt;br&gt;FK  empleado_id  INT  NOT NULL  → empleado.id&lt;br&gt;FK  proyecto_id  INT  NOT NULL  → proyecto.id&lt;br&gt;fecha  DATE  NOT NULL&lt;br&gt;horas  DOUBLE  NOT NULL&lt;br&gt;descripcion  VARCHAR(250)  NOT NULL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="registro_trabajo">
+          <mxGeometry y="28" width="340" height="118" as="geometry" />
+        </mxCell>
+        <mxCell id="proyecto" value="proyecto" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resize=0;collapsible=0;marginBottom=0;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="90" width="260" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="proyecto_r" value="PK  id  INT  AUTO_INCREMENT&lt;br&gt;nombre  VARCHAR(100)  UNIQUE, NOT NULL" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="proyecto">
+          <mxGeometry y="28" width="260" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=12;endSize=12;rounded=0;" edge="1" parent="1" source="departamento" target="empleado">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=12;endSize=12;rounded=0;" edge="1" parent="1" source="empleado" target="registro_trabajo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=12;endSize=12;rounded=0;" edge="1" parent="1" source="proyecto" target="registro_trabajo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nota3" value="&lt;b&gt;Cómo leerlo&lt;/b&gt;&lt;br&gt;• La clave foránea (FK) va en el lado «muchos» de cada relación del UML.&lt;br&gt;• departamento_id admite NULL: un empleado puede no tener departamento (0..1).&lt;br&gt;• No se puede borrar un departamento con empleados, ni un empleado o proyecto con registros de trabajo.&lt;br&gt;• Orden de creación: departamento y proyecto primero; luego empleado y registro_trabajo." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#999999;align=left;verticalAlign=top;spacingLeft=6;spacingRight=6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="330" width="800" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
