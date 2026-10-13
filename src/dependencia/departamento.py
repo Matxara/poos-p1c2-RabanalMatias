@@ -7,7 +7,7 @@ class Departamento(Entidad):
     def __init__(self, nombre, id=None):
         super().__init__(id)
         self._nombre = validar_texto(nombre, "nombre del departamento")
-        self._empleados = []  # colección interna: no se expone directamente
+        self._empleados = []  
 
     @property
     def nombre(self):

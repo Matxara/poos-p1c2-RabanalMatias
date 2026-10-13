@@ -1,4 +1,3 @@
-"""Menú de Registros de trabajo (relaciona un Empleado con un Proyecto)."""
 from dependencia.registro_trabajo import RegistroTrabajo
 from menus.comun import (mostrar_lista, pedir_decimal, pedir_entero, pedir_existente,
                          pedir_fecha, pedir_texto, submenu)

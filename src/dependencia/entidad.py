@@ -1,7 +1,7 @@
 class Entidad:
    
     def __init__(self, id=None):
-        self.id = id  # pasa por el setter, que valida
+        self.id = id 
 
     @property
     def id(self):

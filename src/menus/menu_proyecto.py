@@ -1,4 +1,3 @@
-"""Menú de Proyectos."""
 from dependencia.proyecto import Proyecto
 from menus.comun import mostrar_lista, pedir_entero, pedir_existente, pedir_texto, submenu
 from persistencia.proyecto_dao import ProyectoDAO

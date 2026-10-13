@@ -1,4 +1,3 @@
-"""Menú de Departamentos."""
 from dependencia.departamento import Departamento
 from menus.comun import mostrar_lista, pedir_entero, pedir_existente, pedir_texto, submenu
 from persistencia.departamento_dao import DepartamentoDAO

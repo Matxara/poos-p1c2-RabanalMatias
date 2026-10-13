@@ -4,9 +4,9 @@ from dependencia.reglas import validar_texto
 
 class Empleado(Persona):
     def __init__(self, nombre, correo, cargo, id=None, departamento=None):
-        super().__init__(nombre, correo, id)  # reutiliza constructor y reglas de Persona
+        super().__init__(nombre, correo, id)  
         self._cargo = validar_texto(cargo, "cargo")
-        self._departamento = departamento  # referencia 0..1 al Departamento
+        self._departamento = departamento  
 
     @property
     def cargo(self):

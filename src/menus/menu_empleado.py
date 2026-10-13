@@ -1,4 +1,3 @@
-"""Menú de Empleados (coordina: pide datos, crea objetos, llama al EmpleadoDAO)."""
 from dependencia.empleado import Empleado
 from menus.comun import (mostrar_lista, pedir_correo, pedir_entero, pedir_existente,
                          pedir_texto, submenu)
