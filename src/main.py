@@ -7,7 +7,7 @@ from persistencia.crear_bd import crear_tablas
 
 
 def mostrar_menu():
-    print("\n===== ECOTECH SOLUTIONS =====")
+    print("\n---MENU ECOTECH---")
     print("1. Empleados")
     print("2. Departamentos")
     print("3. Proyectos")
