@@ -20,6 +20,9 @@ py --version
 git --version
 
 py -m venv .venv
+
+
 source .venv/Scripts/activate
+
+
 python -m pip install -r requirements.txt
-python src/main.py
