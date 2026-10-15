@@ -1,6 +1,6 @@
 import re
 from datetime import date 
-FECHA_MINIMA = date(2021, 1, 1)
+FECHA_MINIMA = date(2020, 1, 1)
 FECHA_MAXIMA = date(2027, 1, 1)
 
 _PATRON_CORREO = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
