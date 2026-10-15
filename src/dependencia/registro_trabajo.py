@@ -3,7 +3,7 @@ from datetime import date
 from dependencia.empleado import Empleado
 from dependencia.entidad import Entidad
 from dependencia.proyecto import Proyecto
-from dependencia.reglas import validar_horas
+from dependencia.reglas import validar_fecha, validar_horas
 
 
 class RegistroTrabajo(Entidad):
@@ -18,7 +18,7 @@ class RegistroTrabajo(Entidad):
         self.fecha = fecha
         self.horas = horas
         self.descripcion = descripcion
-
+        
     @property
     def empleado(self):
         return self._empleado
@@ -33,9 +33,7 @@ class RegistroTrabajo(Entidad):
 
     @fecha.setter
     def fecha(self, valor):
-        if not isinstance(valor, date):
-            raise ValueError("La fecha debe ser un objeto date.")
-        self._fecha = valor
+        self._fecha = validar_fecha(valor)
 
     @property
     def horas(self):
