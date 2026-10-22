@@ -1,6 +1,6 @@
 from dependencia.empleado import Empleado
 from menus.comun import (mostrar_lista, pedir_correo, pedir_entero, pedir_existente,
-                         pedir_texto, submenu)
+                         pedir_telefono, pedir_texto, submenu)
 from persistencia.departamento_dao import DepartamentoDAO
 from persistencia.empleado_dao import EmpleadoDAO
 
@@ -8,6 +8,7 @@ from persistencia.empleado_dao import EmpleadoDAO
 def registrar():
     nombre = pedir_texto("Nombre: ", maximo=100)
     correo = pedir_correo("Correo: ")
+    telefono = pedir_telefono("Teléfono (9 dígitos): ")
     cargo = pedir_texto("Cargo: ", maximo=100)
     mostrar_lista(DepartamentoDAO.listar(), "(no hay departamentos registrados)")
     id_dep = pedir_entero("ID del departamento (Enter = sin departamento): ", opcional=True)
@@ -17,7 +18,7 @@ def registrar():
         if departamento is None:
             print("No existe un departamento con ese ID. Registro cancelado.")
             return
-    empleado = Empleado(nombre, correo, cargo, departamento=departamento)  # id=None
+    empleado = Empleado(nombre, correo, telefono, cargo, departamento=departamento)  # id=None
     EmpleadoDAO.insertar(empleado)  # la BD genera el id y el DAO lo asigna
     print(f"Empleado registrado con ID {empleado.id}.")
 
@@ -44,11 +45,14 @@ def actualizar():
     print("Datos actuales:", empleado, "\n(Enter conserva el valor actual)")
     nombre = pedir_texto(f"Nombre [{empleado.nombre}]: ", obligatorio=False, maximo=100)
     correo = pedir_correo(f"Correo [{empleado.correo}]: ", opcional=True)
+    telefono = pedir_telefono(f"Teléfono [{empleado.telefono}]: ", opcional=True)
     cargo = pedir_texto(f"Cargo [{empleado.cargo}]: ", obligatorio=False, maximo=100)
     if nombre:
         empleado.nombre = nombre  # el setter valida
     if correo:
         empleado.correo = correo
+    if telefono:
+        empleado.telefono = telefono
     if cargo:
         empleado.cargo = cargo
     mostrar_lista(DepartamentoDAO.listar(), "(no hay departamentos registrados)")

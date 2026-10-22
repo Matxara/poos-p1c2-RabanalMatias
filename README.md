@@ -1,5 +1,3 @@
-Matias Rabanal
-
 # Descripción
 
 Aplicación de consola desarrollada en Python que permite gestionar la información
@@ -20,6 +18,12 @@ py --version
 git --version
 
 py -m venv .venv
-source .venv/Scripts/activate
+
+
+source .venv/Scripts/actívate
+
+
 python -m pip install -r requirements.txt
+
+
 python src/main.py

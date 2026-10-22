@@ -23,10 +23,10 @@ class DepartamentoDAO:
             return None
         departamento = Departamento(fila[1], id=fila[0])
         filas_emp = consultar(
-            f"SELECT id, nombre, correo, cargo FROM empleado WHERE departamento_id = {m} ORDER BY id",
+            f"SELECT id, nombre, correo, telefono, cargo FROM empleado WHERE departamento_id = {m} ORDER BY id",
             (departamento.id,))
         for f in filas_emp:
-            departamento.agregar_empleado(Empleado(f[1], f[2], f[3], id=f[0]))
+            departamento.agregar_empleado(Empleado(f[1], f[2], f[3], f[4], id=f[0]))
         return departamento
 
     @staticmethod

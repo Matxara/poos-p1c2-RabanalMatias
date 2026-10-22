@@ -3,8 +3,8 @@ from dependencia.reglas import validar_texto
 
 
 class Empleado(Persona):
-    def __init__(self, nombre, correo, cargo, id=None, departamento=None):
-        super().__init__(nombre, correo, id)  
+    def __init__(self, nombre, correo, telefono, cargo, id=None, departamento=None):
+        super().__init__(nombre, correo, telefono, id)  
         self._cargo = validar_texto(cargo, "cargo")
         self._departamento = departamento  
 

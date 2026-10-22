@@ -1,5 +1,6 @@
 from menus.menu_departamento import menu_departamento
 from menus.menu_empleado import menu_empleado
+from menus.menu_indicador import consultar_dolar
 from menus.menu_proyecto import menu_proyecto
 from menus.menu_registro import menu_registro
 from persistencia.conexion import ERRORES_BD
@@ -12,6 +13,7 @@ def mostrar_menu():
     print("2. Departamentos")
     print("3. Proyectos")
     print("4. Registros de trabajo")
+    print("5. Consultar dólar observado")
     print("0. Salir")
 
 
@@ -22,7 +24,7 @@ def main():
         print("No fue posible conectar con la base de datos. Revise su archivo .env.")
         return
 
-while True:
+    while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ").strip()
         if opcion == "1":
@@ -33,6 +35,8 @@ while True:
             menu_proyecto()
         elif opcion == "4":
             menu_registro()
+        elif opcion == "5":
+            consultar_dolar()
         elif opcion == "0":
             print("Adios.")
             break

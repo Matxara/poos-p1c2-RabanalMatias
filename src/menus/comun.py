@@ -1,6 +1,6 @@
 import math
 from datetime import date
-from dependencia.reglas import validar_correo
+from dependencia.reglas import validar_correo, validar_fecha, validar_telefono
 from persistencia.conexion import ERRORES_BD, ERRORES_INTEGRIDAD
 
 
@@ -44,6 +44,17 @@ def pedir_correo(mensaje, opcional=False):
             print(error)
 
 
+def pedir_telefono(mensaje, opcional=False):
+    while True:
+        texto = input(mensaje).strip()
+        if opcional and texto == "":
+            return ""
+        try:
+            return validar_telefono(texto)
+        except ValueError as error:
+            print(error)
+
+
 def pedir_decimal(mensaje, opcional=False):
     while True:
         texto = input(mensaje).strip().replace(",", ".")
@@ -64,11 +75,14 @@ def pedir_fecha(mensaje, por_defecto=None):
     while True:
         texto = input(mensaje).strip()
         if texto == "":
-            return por_defecto or date.today()
+            texto = (por_defecto or date.today()).isoformat()
         try:
-            return date.fromisoformat(texto)
-        except ValueError:
-            print("Fecha inválida. Use el formato AAAA-MM-DD (ej: 2026-10-15).")
+            return validar_fecha(date.fromisoformat(texto))
+        except ValueError as error:
+            if "año" in str(error):
+                print(error)
+            else:
+                print("Fecha inválida. Use el formato AAAA-MM-DD (ej: 2026-10-15).")
 
 
 def mostrar_lista(items, vacio):

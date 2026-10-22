@@ -4,9 +4,9 @@ from persistencia.conexion import abrir_conexion, obtener_motor
 def _tipos():
     if obtener_motor() == "sqlite":
         return {"pk": "INTEGER PRIMARY KEY AUTOINCREMENT", "fk": "INTEGER",
-                "t100": "TEXT", "t150": "TEXT", "t250": "TEXT", "fecha": "TEXT", "real": "REAL"}
+                "t9": "TEXT", "t100": "TEXT", "t150": "TEXT", "t250": "TEXT", "fecha": "TEXT", "real": "REAL"}
     return {"pk": "INT PRIMARY KEY AUTO_INCREMENT", "fk": "INT",
-            "t100": "VARCHAR(100)", "t150": "VARCHAR(150)", "t250": "VARCHAR(250)",
+            "t9": "VARCHAR(9)", "t100": "VARCHAR(100)", "t150": "VARCHAR(150)", "t250": "VARCHAR(250)",
             "fecha": "DATE", "real": "DOUBLE"}
 
 
@@ -20,6 +20,7 @@ def _sentencias():
                 id {t['pk']},
                 nombre {t['t100']} NOT NULL,
                 correo {t['t150']} NOT NULL UNIQUE,
+                telefono {t['t9']} NOT NULL,
                 cargo {t['t100']} NOT NULL,
                 departamento_id {t['fk']} NULL,
                 FOREIGN KEY (departamento_id) REFERENCES departamento(id))""",

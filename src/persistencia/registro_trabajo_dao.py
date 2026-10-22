@@ -8,7 +8,7 @@ from persistencia.dao_base import consultar, consultar_uno, ejecutar_escritura
 
 _SELECT = (
     "SELECT r.id, r.fecha, r.horas, r.descripcion, "
-    "e.id, e.nombre, e.correo, e.cargo, p.id, p.nombre "
+    "e.id, e.nombre, e.correo, e.telefono, e.cargo, p.id, p.nombre "
     "FROM registro_trabajo r "
     "JOIN empleado e ON e.id = r.empleado_id "
     "JOIN proyecto p ON p.id = r.proyecto_id "
@@ -19,8 +19,8 @@ class RegistroTrabajoDAO:
     @staticmethod
     def _fila_a_registro(fila):
         fecha = fila[1] if isinstance(fila[1], date) else date.fromisoformat(fila[1])
-        empleado = Empleado(fila[5], fila[6], fila[7], id=fila[4])
-        proyecto = Proyecto(fila[9], id=fila[8])
+        empleado = Empleado(fila[5], fila[6], fila[7], fila[8], id=fila[4])
+        proyecto = Proyecto(fila[10], id=fila[9])
         return RegistroTrabajo(empleado, proyecto, fecha, fila[2], fila[3], id=fila[0])
 
     @staticmethod
