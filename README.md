@@ -20,6 +20,7 @@ git --version
 py -m venv .venv
 
 
+<<<<<<< HEAD
 source .venv/Scripts/actívate
 
 
@@ -27,3 +28,9 @@ python -m pip install -r requirements.txt
 
 
 python src/main.py
+=======
+source .venv/Scripts/activate
+
+
+py -m pip install -r requirements.txt
+>>>>>>> 7241be47e2963bf991dc9145db90b3713bc4d672

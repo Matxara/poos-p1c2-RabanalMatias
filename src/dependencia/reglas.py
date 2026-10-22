@@ -1,5 +1,11 @@
 import re
+<<<<<<< HEAD
 from datetime import date
+=======
+from datetime import date 
+FECHA_MINIMA = date(2020, 1, 1)
+FECHA_MAXIMA = date(2027, 1, 1)
+>>>>>>> 7241be47e2963bf991dc9145db90b3713bc4d672
 
 _PATRON_CORREO = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 _PATRON_TELEFONO = re.compile(r"^[0-9]{9}$")
@@ -39,6 +45,13 @@ def validar_horas(valor):
 def validar_fecha(valor):
     if not isinstance(valor, date):
         raise ValueError("La fecha debe ser un objeto date.")
+<<<<<<< HEAD
     if not 2020 <= valor.year <= 2027:
         raise ValueError("El año de la fecha debe estar entre 2020 y 2027.")
     return valor
+=======
+    if not FECHA_MINIMA <= valor <= FECHA_MAXIMA:
+        raise ValueError("La fecha debe estar entre 2020 y 2026.")
+    return valor
+
+>>>>>>> 7241be47e2963bf991dc9145db90b3713bc4d672

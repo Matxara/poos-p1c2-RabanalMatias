@@ -18,7 +18,7 @@ class RegistroTrabajo(Entidad):
         self.fecha = fecha
         self.horas = horas
         self.descripcion = descripcion
-
+        
     @property
     def empleado(self):
         return self._empleado
