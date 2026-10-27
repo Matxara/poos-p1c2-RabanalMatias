@@ -25,3 +25,7 @@ source .venv/Scripts/actívate
 
 python -m pip install -r requirements.txt
 
+crear base de datos "ecotech" en mariadb wampserver
+crear admin en semilla_bd
+ejecutar main.py
+
