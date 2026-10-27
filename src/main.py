@@ -1,20 +1,6 @@
-from menus.menu_departamento import menu_departamento
-from menus.menu_empleado import menu_empleado
-from menus.menu_indicador import consultar_dolar
-from menus.menu_proyecto import menu_proyecto
-from menus.menu_registro import menu_registro
+from menus.menu_usuario import menu_privado, solicitar_login
 from persistencia.conexion import ERRORES_BD
 from persistencia.crear_bd import crear_tablas
-
-
-def mostrar_menu():
-    print("\n---MENU ECOTECH---")
-    print("1. Empleados")
-    print("2. Departamentos")
-    print("3. Proyectos")
-    print("4. Registros de trabajo")
-    print("5. Consultar dólar observado")
-    print("0. Salir")
 
 
 def main():
@@ -25,23 +11,18 @@ def main():
         return
 
     while True:
-        mostrar_menu()
-        opcion = input("Seleccione una opción: ").strip()
-        if opcion == "1":
-            menu_empleado()
-        elif opcion == "2":
-            menu_departamento()
-        elif opcion == "3":
-            menu_proyecto()
-        elif opcion == "4":
-            menu_registro()
-        elif opcion == "5":
-            consultar_dolar()
-        elif opcion == "0":
+        usuario_actual = solicitar_login()
+        if usuario_actual is None:
+            if input("Enter para reintentar o 0 para salir: ").strip() == "0":
+                print("Adios.")
+                return
+            continue
+        opcion = menu_privado(usuario_actual)
+        usuario_actual = None
+        if opcion == "0":
             print("Adios.")
-            break
-        else:
-            print("Opción no válida.")
+            return
+        print("Sesión cerrada. Ingrese nuevamente.")
 
 
 if __name__ == "__main__":
