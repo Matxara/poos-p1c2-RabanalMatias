@@ -100,9 +100,9 @@ def mostrar_lista(items, vacio):
         print(" ", item)
 
 
-def pedir_existente(dao, etiqueta):
+def pedir_existente(buscar, etiqueta):
     id_ = pedir_entero(f"ID del {etiqueta}: ")
-    entidad = dao.buscar_por_id(id_)
+    entidad = buscar(id_)
     if entidad is None:
         print(f"No existe un {etiqueta} con ID {id_}.")
     return entidad
@@ -111,6 +111,8 @@ def pedir_existente(dao, etiqueta):
 def ejecutar(accion):
     try:
         accion()
+    except PermissionError as error:
+        print(error)
     except ValueError as error:  
         print(f"Dato no válido: {error}")
     except ERRORES_INTEGRIDAD:   

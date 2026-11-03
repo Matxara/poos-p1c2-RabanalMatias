@@ -2,20 +2,21 @@ from dependencia.usuario import Usuario
 from persistencia.conexion import marcador_sql
 from persistencia.dao_base import consultar_uno, ejecutar_escritura
 
-_SELECT = "SELECT id, nombre_usuario, password_hash, empleado_id FROM usuario "
+_SELECT = "SELECT id, nombre_usuario, password_hash, empleado_id, rol FROM usuario "
 
 
 class UsuarioDAO:
     @staticmethod
     def _fila_a_usuario(fila):
-        return Usuario(fila[1], fila[2], fila[3], id=fila[0])
+        return Usuario(fila[1], fila[2], fila[3], id=fila[0], rol=fila[4])
 
     @staticmethod
     def insertar(usuario):
         m = marcador_sql()
-        sql = f"INSERT INTO usuario (nombre_usuario, password_hash, empleado_id) VALUES ({m}, {m}, {m})"
+        sql = (f"INSERT INTO usuario (nombre_usuario, password_hash, empleado_id, rol) "
+               f"VALUES ({m}, {m}, {m}, {m})")
         nuevo_id, _ = ejecutar_escritura(
-            sql, (usuario.nombre_usuario, usuario.password_hash, usuario.empleado_id))
+            sql, (usuario.nombre_usuario, usuario.password_hash, usuario.empleado_id, usuario.rol))
         usuario.id = nuevo_id
         return nuevo_id
 

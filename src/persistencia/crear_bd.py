@@ -4,9 +4,9 @@ from persistencia.conexion import abrir_conexion, obtener_motor
 def _tipos():
     if obtener_motor() == "sqlite":
         return {"pk": "INTEGER PRIMARY KEY AUTOINCREMENT", "fk": "INTEGER",
-                "t9": "TEXT", "t40": "TEXT", "t100": "TEXT", "t150": "TEXT", "t250": "TEXT", "fecha": "TEXT", "real": "REAL"}
+                "t9": "TEXT", "t20": "TEXT", "t40": "TEXT", "t100": "TEXT", "t150": "TEXT", "t250": "TEXT", "fecha": "TEXT", "real": "REAL"}
     return {"pk": "INT PRIMARY KEY AUTO_INCREMENT", "fk": "INT",
-            "t9": "VARCHAR(9)", "t40": "VARCHAR(40)", "t100": "VARCHAR(100)", "t150": "VARCHAR(150)", "t250": "VARCHAR(250)",
+            "t9": "VARCHAR(9)", "t20": "VARCHAR(20)", "t40": "VARCHAR(40)", "t100": "VARCHAR(100)", "t150": "VARCHAR(150)", "t250": "VARCHAR(250)",
             "fecha": "DATE", "real": "DOUBLE"}
 
 
@@ -41,6 +41,7 @@ def _sentencias():
                 nombre_usuario {t['t40']} NOT NULL UNIQUE,
                 password_hash {t['t100']} NOT NULL,
                 empleado_id {t['fk']} NOT NULL UNIQUE,
+                rol {t['t20']} NOT NULL DEFAULT 'empleado' CHECK (rol IN ('admin', 'empleado')),
                 FOREIGN KEY (empleado_id) REFERENCES empleado(id))""",
     ]
 

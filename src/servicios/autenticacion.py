@@ -3,6 +3,7 @@ import bcrypt
 from dependencia.usuario import Usuario
 from persistencia.empleado_dao import EmpleadoDAO
 from persistencia.usuario_dao import UsuarioDAO
+from servicios.permisos import exigir_admin
 
 MAX_BYTES_BCRYPT = 72
 
@@ -15,15 +16,21 @@ def crear_hash(clave):
     return bcrypt.hashpw(clave_bytes, bcrypt.gensalt()).decode("utf-8")
 
 
-def registrar_usuario(empleado_id, nombre, clave):
+def crear_cuenta(empleado_id, nombre, clave, rol="empleado"):
     nombre = Usuario.normalizar_usuario(nombre)
+    rol = Usuario.validar_rol(rol)
     hash_guardado = crear_hash(clave)
     if (EmpleadoDAO.buscar_por_id(empleado_id) is None
             or UsuarioDAO.buscar_por_empleado(empleado_id) is not None
             or UsuarioDAO.buscar_por_nombre(nombre) is not None):
         raise ValueError("No se pudo crear esa cuenta.")
-    usuario = Usuario(nombre, hash_guardado, empleado_id)
+    usuario = Usuario(nombre, hash_guardado, empleado_id, rol=rol)
     return UsuarioDAO.insertar(usuario)
+
+
+def registrar_usuario(sesion, empleado_id, nombre, clave):
+    exigir_admin(sesion)
+    return crear_cuenta(empleado_id, nombre, clave, "empleado")
 
 
 def autenticar(nombre, clave):
@@ -39,4 +46,4 @@ def autenticar(nombre, clave):
     if not bcrypt.checkpw(datos, cuenta.password_hash.encode("utf-8")):
         return None
     return {"id": cuenta.id, "empleado_id": cuenta.empleado_id,
-            "nombre_usuario": cuenta.nombre_usuario}
+            "nombre_usuario": cuenta.nombre_usuario, "rol": cuenta.rol}

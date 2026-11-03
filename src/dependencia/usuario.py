@@ -5,8 +5,9 @@ class Usuario(Entidad):
     MIN_USUARIO = 3
     MAX_USUARIO = 40
     MIN_CLAVE = 6
+    ROLES = ("admin", "empleado")
 
-    def __init__(self, nombre_usuario, password_hash, empleado_id, id=None):
+    def __init__(self, nombre_usuario, password_hash, empleado_id, id=None, rol="empleado"):
         super().__init__(id)
         if type(empleado_id) is not int or empleado_id <= 0:
             raise ValueError("El ID del empleado debe ser positivo.")
@@ -15,6 +16,7 @@ class Usuario(Entidad):
         self._empleado_id = empleado_id
         self._nombre_usuario = self.normalizar_usuario(nombre_usuario)
         self._password_hash = password_hash
+        self._rol = self.validar_rol(rol)
 
     @property
     def nombre_usuario(self):
@@ -27,6 +29,10 @@ class Usuario(Entidad):
     @property
     def empleado_id(self):
         return self._empleado_id
+
+    @property
+    def rol(self):
+        return self._rol
 
     @classmethod
     def normalizar_usuario(cls, nombre):
@@ -48,5 +54,11 @@ class Usuario(Entidad):
             raise ValueError(f"Use al menos {cls.MIN_CLAVE} caracteres.")
         return clave
 
+    @classmethod
+    def validar_rol(cls, rol):
+        if not isinstance(rol, str) or rol not in cls.ROLES:
+            raise ValueError("Rol no permitido.")
+        return rol
+
     def mostrar_datos(self):
-        return f"{self._nombre_usuario} (empleado {self._empleado_id})"
+        return f"{self._nombre_usuario} ({self._rol}, empleado {self._empleado_id})"
