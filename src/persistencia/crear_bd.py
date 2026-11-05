@@ -43,6 +43,15 @@ def _sentencias():
                 empleado_id {t['fk']} NOT NULL UNIQUE,
                 rol {t['t20']} NOT NULL DEFAULT 'empleado' CHECK (rol IN ('admin', 'empleado')),
                 FOREIGN KEY (empleado_id) REFERENCES empleado(id))""",
+        f"""CREATE TABLE IF NOT EXISTS indicador_api (
+                id {t['pk']},
+                fuente {t['t40']} NOT NULL,
+                codigo {t['t20']} NOT NULL,
+                fecha {t['fecha']} NOT NULL,
+                valor {t['real']} NOT NULL,
+                unidad {t['t20']} NOT NULL,
+                verificado_en {t['t40']} NOT NULL,
+                UNIQUE (fuente, codigo, fecha))""",
     ]
 
 

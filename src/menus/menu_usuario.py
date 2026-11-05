@@ -3,7 +3,7 @@ from getpass import getpass
 from menus.comun import ejecutar, pedir_correo, pedir_texto
 from menus.menu_departamento import menu_departamento
 from menus.menu_empleado import menu_empleado
-from menus.menu_indicador import consultar_dolar
+from menus.menu_indicador import menu_indicador
 from menus.menu_proyecto import menu_proyecto
 from menus.menu_registro import menu_registro
 from persistencia.conexion import ERRORES_BD
@@ -59,11 +59,6 @@ def modificar_mis_datos(usuario_actual):
     print("Sus datos fueron actualizados.")
 
 
-def consultar_indicador(usuario_actual):
-    exigir_sesion(usuario_actual)
-    consultar_dolar()
-
-
 def abrir_admin(menu, usuario_actual):
     exigir_admin(usuario_actual)
     menu(usuario_actual)
@@ -73,7 +68,7 @@ def mostrar_menu(usuario_actual):
     print("\n---MENU ECOTECH---")
     print("1. Mi ficha")
     print("2. Mis registros")
-    print("3. Consultar dólar observado")
+    print("3. Indicadores (dólar)")
     print("4. Modificar mis datos")
     if usuario_actual["rol"] == "admin":
         print("5. Administrar empleados")
@@ -93,7 +88,7 @@ def menu_privado(usuario_actual):
     acciones = {
         "1": mostrar_mi_ficha,
         "2": mostrar_mis_registros,
-        "3": consultar_indicador,
+        "3": menu_indicador,
         "4": modificar_mis_datos,
     }
     acciones_admin = {
