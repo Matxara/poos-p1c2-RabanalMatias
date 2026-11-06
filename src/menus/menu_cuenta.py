@@ -1,9 +1,19 @@
 from getpass import getpass
 
 from dependencia.usuario import Usuario
-from menus.comun import pedir_dato, pedir_entero
+from menus.comun import mostrar_lista, pedir_dato, pedir_entero
 from persistencia.conexion import ERRORES_BD, ERRORES_INTEGRIDAD
-from servicios.autenticacion import registrar_usuario
+from servicios.autenticacion import listar_cuentas, registrar_usuario
+
+
+def pedir_rol():
+    while True:
+        opcion = input("Rol (1 = empleado, 2 = administrador): ").strip()
+        if opcion == "1":
+            return "empleado"
+        if opcion == "2":
+            return "admin"
+        print("Opción no válida.")
 
 
 def solicitar_registro(sesion):
@@ -14,7 +24,8 @@ def solicitar_registro(sesion):
         if clave != getpass("Repita la contraseña: "):
             print("Las contraseñas no coinciden. Vuelva al registro.")
             return None
-        usuario_id = registrar_usuario(sesion, empleado_id, nombre, clave)
+        rol = pedir_rol()
+        usuario_id = registrar_usuario(sesion, empleado_id, nombre, clave, rol)
     except (PermissionError, TypeError, ValueError) as error:
         print(error)
         return None
@@ -26,3 +37,7 @@ def solicitar_registro(sesion):
         return None
     print(f"Cuenta creada correctamente. ID: {usuario_id}")
     return usuario_id
+
+
+def ver_cuentas(sesion):
+    mostrar_lista([c.mostrar_datos() for c in listar_cuentas(sesion)], "No hay cuentas registradas.")

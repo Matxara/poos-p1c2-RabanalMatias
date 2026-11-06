@@ -6,7 +6,7 @@ from dependencia.empleado import Empleado
 from dependencia.proyecto import Proyecto
 from dependencia.registro_trabajo import RegistroTrabajo
 from dependencia.usuario import Usuario
-from menus.comun import pedir_dato
+from menus.comun import pedir_correo, pedir_dato, pedir_telefono, pedir_texto
 from persistencia.asignacion_dao import AsignacionDAO
 from persistencia.conexion import ERRORES_BD
 from persistencia.crear_bd import crear_tablas
@@ -17,15 +17,12 @@ from persistencia.registro_trabajo_dao import RegistroTrabajoDAO
 from persistencia.usuario_dao import UsuarioDAO
 from servicios.autenticacion import crear_cuenta
 
-CUENTAS = (
-    ("Administrador", "admin@ecotech.cl", "900000000", "Administrador", "admin", "admin"),
-    ("Ana Torres", "ana@ecotech.cl", "911111111", "Analista", "ana_torres", "empleado"),
-    ("Bruno Díaz", "bruno@ecotech.cl", "922222222", "Analista", "bruno_diaz", "empleado"),
-)
-
-
 DEPARTAMENTOS = ("Tecnología", "Operaciones")
 PROYECTOS = ("Portal EcoTech", "Reciclaje Urbano")
+EMPLEADOS_EJEMPLO = (
+    ("Ana Torres", "ana@ecotech.cl", "911111111", "Analista"),
+    ("Bruno Díaz", "bruno@ecotech.cl", "922222222", "Analista"),
+)
 DEPARTAMENTO_DE = {"ana@ecotech.cl": "Tecnología", "bruno@ecotech.cl": "Operaciones"}
 ASIGNACIONES = (
     ("ana@ecotech.cl", "Portal EcoTech"),
@@ -47,20 +44,26 @@ def pedir_clave(usuario):
         print("Las contraseñas no coinciden.")
 
 
-def sembrar_cuenta(nombre, correo, telefono, cargo, usuario, rol):
+def crear_primer_administrador():
+    if UsuarioDAO.hay_administrador():
+        print("Ya existe un administrador. No se creó otro.")
+        return
+    print("Cree la cuenta del primer administrador.")
+    nombre = pedir_texto("Nombre completo: ", maximo=100)
+    correo = pedir_correo("Correo: ")
+    telefono = pedir_telefono("Teléfono (9 dígitos): ")
+    cargo = pedir_texto("Cargo: ", maximo=100)
+    usuario = pedir_dato("Nombre de usuario: ", Usuario.normalizar_usuario)
+    clave = pedir_clave(usuario)
     empleado = EmpleadoDAO.buscar_por_correo(correo)
     if empleado is None:
         empleado = EmpleadoDAO.insertar(Empleado(nombre, correo, telefono, cargo))
-        print(f"Empleado {nombre} creado con ID {empleado.id}.")
-    else:
-        print(f"Empleado {nombre} ya existe con ID {empleado.id}.")
+    usuario_id = crear_cuenta(empleado.id, usuario, clave, "admin")
+    print(f"Administrador '{usuario}' creado con ID {usuario_id}.")
 
-    if UsuarioDAO.buscar_por_empleado(empleado.id) is not None:
-        print(f"La cuenta de {nombre} ya existe. No se modificó nada.")
-        return
-    clave = pedir_clave(usuario)
-    usuario_id = crear_cuenta(empleado.id, usuario, clave, rol)
-    print(f"Cuenta '{usuario}' ({rol}) creada con ID {usuario_id}.")
+
+def preguntar_si(mensaje):
+    return input(mensaje).strip().lower() in ("s", "si", "sí")
 
 
 def sembrar_datos():
@@ -74,6 +77,9 @@ def sembrar_datos():
             proyectos[nombre] = ProyectoDAO.insertar(Proyecto(nombre))
 
     empleados = {}
+    for nombre, correo, telefono, cargo in EMPLEADOS_EJEMPLO:
+        if EmpleadoDAO.buscar_por_correo(correo) is None:
+            EmpleadoDAO.insertar(Empleado(nombre, correo, telefono, cargo))
     for correo, nombre_dep in DEPARTAMENTO_DE.items():
         empleado = EmpleadoDAO.buscar_por_correo(correo)
         empleados[correo] = empleado
@@ -96,9 +102,9 @@ def sembrar_datos():
 
 def sembrar():
     crear_tablas()
-    for cuenta in CUENTAS:
-        sembrar_cuenta(*cuenta)
-    sembrar_datos()
+    crear_primer_administrador()
+    if preguntar_si("¿Cargar datos de ejemplo (empleados, proyectos y horas)? (s/n): "):
+        sembrar_datos()
 
 
 if __name__ == "__main__":

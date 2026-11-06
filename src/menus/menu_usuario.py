@@ -4,6 +4,7 @@ from menus.comun import (ejecutar, mostrar_lista, pedir_correo, pedir_decimal, p
                          pedir_fecha, pedir_texto, submenu)
 from menus.menu_departamento import menu_departamento
 from menus.menu_clima import menu_clima
+from menus.menu_cuenta import solicitar_registro, ver_cuentas
 from menus.menu_empleado import menu_empleado
 from menus.menu_indicador import menu_indicador
 from menus.menu_pago import calcular
@@ -97,6 +98,8 @@ def menu_administracion(usuario_actual):
         "3": ("Proyectos y asignaciones", lambda: menu_proyecto(usuario_actual)),
         "4": ("Registros de trabajo (todos)", lambda: menu_registro(usuario_actual)),
         "5": ("Calcular pago en moneda extranjera", lambda: calcular(usuario_actual)),
+        "6": ("Crear cuenta de usuario (empleado o administrador)", lambda: solicitar_registro(usuario_actual)),
+        "7": ("Ver cuentas de usuario", lambda: ver_cuentas(usuario_actual)),
     })
 
 

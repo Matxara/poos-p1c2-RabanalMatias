@@ -28,9 +28,14 @@ def crear_cuenta(empleado_id, nombre, clave, rol="empleado"):
     return UsuarioDAO.insertar(usuario)
 
 
-def registrar_usuario(sesion, empleado_id, nombre, clave):
+def registrar_usuario(sesion, empleado_id, nombre, clave, rol="empleado"):
     exigir_admin(sesion)
-    return crear_cuenta(empleado_id, nombre, clave, "empleado")
+    return crear_cuenta(empleado_id, nombre, clave, rol)
+
+
+def listar_cuentas(sesion):
+    exigir_admin(sesion)
+    return UsuarioDAO.listar()
 
 
 def autenticar(nombre, clave):

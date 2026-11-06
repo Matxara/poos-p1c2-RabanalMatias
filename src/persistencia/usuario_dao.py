@@ -1,6 +1,6 @@
 from dependencia.usuario import Usuario
 from persistencia.conexion import marcador_sql
-from persistencia.dao_base import consultar_uno, ejecutar_escritura
+from persistencia.dao_base import consultar, consultar_uno, ejecutar_escritura
 
 _SELECT = "SELECT id, nombre_usuario, password_hash, empleado_id, rol FROM usuario "
 
@@ -24,6 +24,15 @@ class UsuarioDAO:
     def buscar_por_nombre(nombre):
         fila = consultar_uno(_SELECT + f"WHERE nombre_usuario = {marcador_sql()}", (nombre,))
         return None if fila is None else UsuarioDAO._fila_a_usuario(fila)
+
+    @staticmethod
+    def listar():
+        return [UsuarioDAO._fila_a_usuario(f) for f in consultar(_SELECT + "ORDER BY id")]
+
+    @staticmethod
+    def hay_administrador():
+        fila = consultar_uno("SELECT id FROM usuario WHERE rol = 'admin'")
+        return fila is not None
 
     @staticmethod
     def buscar_por_empleado(empleado_id):
