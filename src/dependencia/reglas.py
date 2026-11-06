@@ -1,3 +1,4 @@
+import math
 import re
 from datetime import date
 
@@ -42,3 +43,32 @@ def validar_fecha(valor):
     if not 2020 <= valor.year <= 2027:
         raise ValueError("El año de la fecha debe estar entre 2020 y 2027.")
     return valor
+
+
+MONEDAS = {"dolar": "CLP/USD", "euro": "CLP/EUR"}
+_ALIAS_MONEDA = {"dolar": "dolar", "usd": "dolar", "euro": "euro", "eur": "euro"}
+
+
+def validar_moneda(valor):
+    if not isinstance(valor, str):
+        raise ValueError("La moneda debe ser texto.")
+    clave = valor.strip().lower().replace("ó", "o")
+    if clave not in _ALIAS_MONEDA:
+        raise ValueError("Moneda no admitida. Use: dolar o euro.")
+    return _ALIAS_MONEDA[clave]
+
+
+def validar_monto_clp(valor):
+    if isinstance(valor, bool):
+        raise ValueError("Ingrese un monto numérico.")
+    if isinstance(valor, str):
+        try:
+            valor = float(valor.strip().replace(",", "."))
+        except ValueError:
+            raise ValueError("Ingrese un monto numérico.") from None
+    if not isinstance(valor, (int, float)) or not math.isfinite(valor):
+        raise ValueError("Ingrese un monto numérico.")
+    if not 0 < valor <= 100_000_000:
+        raise ValueError("El monto debe ser mayor que 0 y no superar 100.000.000.")
+    return float(valor)
+

@@ -1,14 +1,19 @@
 import math
 
-import requests
+from dependencia.reglas import MONEDAS
+from servicios.cliente_http import solicitar_json
 
-URL_DOLAR = "https://mindicador.cl/api/dolar"
+URL_BASE = "https://mindicador.cl/api/"
 
 
-def obtener_datos():
-    respuesta = requests.get(URL_DOLAR, timeout=(3, 5))
-    respuesta.raise_for_status()
-    return respuesta.json()
+def url_indicador(codigo):
+    if codigo not in MONEDAS:
+        raise ValueError("Moneda no admitida.")
+    return URL_BASE + codigo
+
+
+def obtener_datos(codigo="dolar"):
+    return solicitar_json(url_indicador(codigo))
 
 
 def extraer_primero(datos):
