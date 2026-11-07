@@ -1,7 +1,8 @@
 import math
-from datetime import date, datetime, timezone
+from datetime import date, datetime
 
 from dependencia.entidad import Entidad
+from dependencia.reglas import ahora_chile
 
 
 class Indicador(Entidad):
@@ -73,7 +74,7 @@ class Indicador(Entidad):
     @verificado_en.setter
     def verificado_en(self, valor):
         if valor is None:
-            valor = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            valor = ahora_chile()
         if isinstance(valor, datetime):
             valor = valor.isoformat(timespec="seconds")
         if not isinstance(valor, str):

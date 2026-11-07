@@ -1,6 +1,9 @@
 import math
 import re
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
+
+ZONA_CHILE = ZoneInfo("America/Santiago")
 
 _PATRON_CORREO = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 _PATRON_TELEFONO = re.compile(r"^[0-9]{9}$")
@@ -72,3 +75,7 @@ def validar_monto_clp(valor):
         raise ValueError("El monto debe ser mayor que 0 y no superar 100.000.000.")
     return float(valor)
 
+
+
+def ahora_chile():
+    return datetime.now(ZONA_CHILE).isoformat(timespec="seconds")

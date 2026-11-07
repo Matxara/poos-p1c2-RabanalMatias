@@ -1,8 +1,9 @@
 import math
 import re
-from datetime import date, datetime, timezone
+from datetime import date, datetime
 
 from dependencia.entidad import Entidad
+from dependencia.reglas import ahora_chile
 
 _PATRON_CIUDAD = re.compile(r"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ' .-]{2,60}$")
 _PATRON_PAIS = re.compile(r"^[A-Za-z]{2}$")
@@ -100,7 +101,7 @@ class Clima(Entidad):
     @verificado_en.setter
     def verificado_en(self, valor):
         if valor is None:
-            valor = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            valor = ahora_chile()
         if not isinstance(valor, str):
             raise ValueError("La fecha de verificación no es válida.")
         try:
